@@ -1,1 +1,148 @@
-# SinglyLinkedList
+class Node{
+    int data;
+    Node next;
+    
+    //constructor
+    
+    Node(int data){
+    this.data=data;
+    this.next=null;
+}
+}
+
+    //class
+
+class SinglyLinkedList{
+    Node head;
+    
+    //InsertAtbegin
+    
+    public void InsertAtbegin(int data){
+        Node newNode=new Node(data);
+        newNode.next=head;
+        head=newNode;
+}
+    
+    //InsertAtEnd
+    
+    public void  InsertAtEnd(int data){
+        Node newNode=new Node(data);
+        if(head==null){
+            head=newNode;
+            return;
+        }
+        Node temp=head;
+        while(temp.next!=null){
+            temp=temp.next;
+        }
+        temp.next=newNode;
+}
+     
+     //DeleteAtBegin
+     
+    public void DeleteAtBegin(){
+        if(head==null){
+        System.out.println("No need to delete");
+        return;
+    }
+    head=head.next;
+    }
+    
+    //DeleteAtEnd
+    
+    public void DeleteAtEnd(){
+        if(head==null){
+            System.out.println("list is empty,no need to delete");
+            return;
+        }
+        if(head.next==null){
+            head=null;
+            return;
+        }
+        Node temp=head;
+        while(temp.next!=null && temp.next.next!=null){
+            temp=temp.next;
+        }
+        temp.next=null;
+        }
+        
+    // InsertAtAnyPosition
+    
+    public void InsertAtAnyPosition(int position,int data){
+            if(position<=0){
+                System.out.println("Invalid position");
+                return;
+            }
+        Node newNode=new Node(data);
+        if(position==1){
+            newNode.next=head;
+            head=newNode;
+            return;
+        }
+        Node temp=head;
+        for (int i=1;i<position-1 && temp!=null;i++){
+            temp=temp.next;
+        }
+        if(temp==null){
+            System.out.println("Exceeds the given length");
+            return;
+        }
+        newNode.next=temp.next;
+        temp.next=newNode;
+        }
+        
+        // Display method
+        
+        public void display(){
+            Node temp=head;
+            if(head==null){
+                System.out.println("List is empty");
+            }
+            else{
+                System.out.println("The values are:");
+            }
+            while(temp!=null){
+                System.out.print(temp.data);
+                if(temp.next!=null){
+                    System.out.print(" > ");
+                }
+                  temp=temp.next;
+            }
+            System.out.println();
+        }
+        }
+        
+        // Main class
+        
+        public class Main{
+            public static void main(String[] args){
+                SinglyLinkedList list=new SinglyLinkedList();
+                list.InsertAtbegin(10);
+                list.InsertAtbegin(20);
+                list.InsertAtbegin(30);
+                list.InsertAtbegin(40);
+                list.InsertAtbegin(50);
+                list.display();
+                
+                
+                list.InsertAtEnd(70);
+                list.InsertAtEnd(80);
+                list.InsertAtEnd(90);
+                list.InsertAtEnd(100);
+                list.display();
+                
+                list.DeleteAtBegin();
+                list.DeleteAtBegin();
+                list.DeleteAtBegin();
+                list.display();
+                
+                
+                list.DeleteAtEnd();
+                list.DeleteAtEnd();
+                list.DeleteAtEnd();
+                list.display();
+                
+                list.InsertAtAnyPosition(3,110);
+                list.display();
+            }
+        }
