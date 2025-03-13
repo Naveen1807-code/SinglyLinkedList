@@ -99,7 +99,7 @@ class SinglyLinkedList{
                 System.out.println("List is empty");
             }
             else{
-                System.out.println("The values are:");
+                
             }
             while(temp!=null){
                 System.out.print(temp.data);
@@ -117,6 +117,8 @@ class SinglyLinkedList{
         public class Main{
             public static void main(String[] args){
                 SinglyLinkedList list=new SinglyLinkedList();
+                
+                System.out.println("Insert At Begin:");
                 list.InsertAtbegin(10);
                 list.InsertAtbegin(20);
                 list.InsertAtbegin(30);
@@ -124,25 +126,42 @@ class SinglyLinkedList{
                 list.InsertAtbegin(50);
                 list.display();
                 
-                
+                System.out.println("Insert At End:");
                 list.InsertAtEnd(70);
                 list.InsertAtEnd(80);
                 list.InsertAtEnd(90);
                 list.InsertAtEnd(100);
                 list.display();
                 
+                System.out.println("Delete At Begin:");
                 list.DeleteAtBegin();
                 list.DeleteAtBegin();
                 list.DeleteAtBegin();
                 list.display();
                 
-                
+                System.out.println("Delete At End:");
                 list.DeleteAtEnd();
                 list.DeleteAtEnd();
                 list.DeleteAtEnd();
                 list.display();
                 
+                
+                System.out.println("Insert At Any Position:");
                 list.InsertAtAnyPosition(3,110);
                 list.display();
             }
         }
+
+OUTPUT:
+             Insert At Begin:
+             50 > 40 > 30 > 20 > 10
+             Insert At End:
+             50 > 40 > 30 > 20 > 10 > 70 > 80 > 90 > 100
+             Delete At Begin:
+             20 > 10 > 70 > 80 > 90 > 100
+             Delete At End:
+             20 > 10 > 70
+             Insert At Any Position:
+             20 > 10 > 110 > 70
+
+             
